@@ -1,5 +1,7 @@
 package exam.springboot.jpa.library.controller;
 
+import exam.springboot.jpa.library.service.LibraryService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -8,17 +10,21 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class LibraryController {
 
+    @Autowired
+    LibraryService lbsrv;
+
 
     @GetMapping("/")
-    public String list() {
+    public ModelAndView list(Integer cpg) {
         ModelAndView mv = new ModelAndView();
 
-        /*mv.addObject("lblist", lbsrv.readList(cpg));*/
+        if (cpg == null || cpg == 0) cpg = 1;
+        mv.addObject("lblist", lbsrv.readLibrary(cpg));
         /*mv.addObject("cpg",cpg);
         mv.addObject("stpg", ((cpg-1)/10)*10 + 1);
         mv.addObject("cntpg",lbsrv.countList());*/
 
         mv.setViewName("list");
-        return "list";
+        return mv;
     }
 }
