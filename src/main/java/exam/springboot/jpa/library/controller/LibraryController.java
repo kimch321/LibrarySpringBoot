@@ -20,9 +20,9 @@ public class LibraryController {
 
         if (cpg == null || cpg == 0) cpg = 1;
         mv.addObject("lblist", lbsrv.readLibrary(cpg));
-        /*mv.addObject("cpg",cpg);
+        mv.addObject("cpg",cpg);
+        mv.addObject("cntpg",lbsrv.countLibrary());
         mv.addObject("stpg", ((cpg-1)/10)*10 + 1);
-        mv.addObject("cntpg",lbsrv.countList());*/
 
         mv.setViewName("list");
         return mv;

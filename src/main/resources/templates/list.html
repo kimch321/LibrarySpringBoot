@@ -11,7 +11,7 @@
 <body>
 
 <th:block>
-    <div id="main" th:with="pglink=${'/list?cpg='}">
+    <div id="main" th:with="pglink=${'/?cpg='}">
         <div class="mt-5">
             <i class="fa-solid fa-pen-to-square fa-2xl"> 게시판 </i>
             <hr>
@@ -75,10 +75,10 @@
             </div>
         </div>
 
-        <th:block th:with="pglink=${'/board/list?cpg='}">
+        <th:block th:with="pglink=${'/?cpg='}">
             <div class="row">
                 <div class="offset-2 col-8 text-end">
-                    <!--<nav>
+                    <nav>
                         <ul class="pagination justify-content-center">
 
                             <th:block th:if="${cpg gt 1}">
@@ -103,7 +103,7 @@
                                 <li class="page-item"><a class="page-link" th:href="|${pglink}${cntpg}|">끝</a></li>
                             </th:block>
                         </ul>
-                    </nav>-->
+                    </nav>
                 </div>
             </div>
         </th:block>
